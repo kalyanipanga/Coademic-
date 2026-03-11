@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { 
   CheckCircle2, 
@@ -65,7 +65,7 @@ const roadmap = [
     desc: "Mastering the fundamentals, building a growth mindset, and establishing technical depth.",
     icon: Target,
     color: "bg-brand-red",
-    image: "https://picsum.photos/seed/foundations/800/600"
+    image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80" // Forest path image
   },
   { 
     day: "Day 26-50", 
@@ -74,7 +74,7 @@ const roadmap = [
     desc: "Rapidly scaling your abilities through intensive building and advanced architectural patterns.",
     icon: TrendingUp,
     color: "bg-red-600",
-    image: "https://picsum.photos/seed/acceleration/800/600"
+    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80" // Modern library/classroom
   },
   { 
     day: "Day 51-75", 
@@ -83,7 +83,7 @@ const roadmap = [
     desc: "Testing your limits with high-pressure simulations and real-world project integration.",
     icon: Cpu,
     color: "bg-red-500",
-    image: "https://picsum.photos/seed/simulation/800/600"
+    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80" // High-tech lab
   },
   { 
     day: "Day 76-100", 
@@ -92,7 +92,7 @@ const roadmap = [
     desc: "Finalizing your professional brand and launching into elite engineering roles.",
     icon: Rocket,
     color: "bg-red-400",
-    image: "https://picsum.photos/seed/transformation/800/600"
+    image: "https://images.unsplash.com/photo-1523240715639-963c9ad08429?auto=format&fit=crop&w=1200&q=80" // Graduation/Success
   }
 ];
 
@@ -105,8 +105,48 @@ const sectors = [
   { name: "Tech Unicorns", icon: Sparkles }
 ];
 
+const archComponents = [
+  {
+    id: "api_gateway",
+    title: "THE GUARD",
+    icon: Layers,
+    desc: "Like a friendly guard at a gate who checks your name and tells you exactly which room to go to.",
+    throughput: "SUPER FAST",
+    availability: "ALWAYS ON",
+    pos: "top-0 left-1/2 -translate-x-1/2"
+  },
+  {
+    id: "microservices",
+    title: "THE WORKERS",
+    icon: Server,
+    desc: "A big team of busy workers. Each worker has one special job, like fixing toys or baking cookies.",
+    throughput: "VERY BUSY",
+    availability: "NEVER TIRED",
+    pos: "bottom-1/2 left-0 -translate-y-1/2"
+  },
+  {
+    id: "database",
+    title: "THE LIBRARY",
+    icon: Database,
+    desc: "A giant, magical library that remembers everything you've ever done and keeps it safe forever.",
+    throughput: "GIANT MEMORY",
+    availability: "SAFE & SOUND",
+    pos: "bottom-0 left-1/2 -translate-x-1/2"
+  },
+  {
+    id: "load_balancer",
+    title: "THE HELPER",
+    icon: Network,
+    desc: "A smart helper who makes sure everyone gets a turn so that nobody gets too crowded or grumpy.",
+    throughput: "SMOOTH RIDE",
+    availability: "NO CRASHES",
+    pos: "top-1/2 right-0 -translate-y-1/2"
+  }
+];
+
 export default function WhyUs() {
   const [activeStep, setActiveStep] = useState(0);
+  const [activeArch, setActiveArch] = useState(3); // Default to Load Balancer
 
   return (
     <div className="bg-white selection:bg-brand-red selection:text-white overflow-x-hidden">
@@ -273,10 +313,15 @@ export default function WhyUs() {
                 </div>
                 <div className="mt-8 pt-8 border-t border-slate-100 flex items-center justify-between">
                   <div className="flex -space-x-4">
-                    {[1, 2, 3, 4].map((i) => (
+                    {[
+                      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80",
+                      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100&q=80",
+                      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&h=100&q=80",
+                      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=100&h=100&q=80"
+                    ].map((url, i) => (
                       <img 
                         key={i}
-                        src={`https://picsum.photos/seed/user${i}/100/100`}
+                        src={url}
                         className="w-12 h-12 rounded-full border-4 border-white object-cover"
                         referrerPolicy="no-referrer"
                         alt="Alumni"
@@ -563,136 +608,6 @@ export default function WhyUs() {
         </div>
       </section>
 
-      {/* System Architecture Exploded View */}
-      <section className="bg-slate-950 py-32 relative overflow-hidden">
-        {/* Background Grid & Elements */}
-        <div className="absolute inset-0 z-0 opacity-20">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:40px_40px]" />
-        </div>
-
-        <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left Side: Technical Diagram */}
-            <div className="relative aspect-square max-w-xl mx-auto lg:mx-0">
-              {/* Central Circle */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-64 h-64 rounded-full border border-white/10 relative">
-                  <motion.div 
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-0 border-t-2 border-brand-red rounded-full opacity-40"
-                  />
-                  <div className="absolute inset-4 rounded-full border border-dashed border-white/5" />
-                </div>
-              </div>
-
-              {/* Orbiting Icons */}
-              {[
-                { icon: Layers, pos: "top-0 left-1/2 -translate-x-1/2", delay: 0 },
-                { icon: Server, pos: "bottom-1/2 left-0 -translate-y-1/2", delay: 1 },
-                { icon: Database, pos: "bottom-0 left-1/2 -translate-x-1/2", delay: 2 },
-                { icon: Network, pos: "top-1/2 right-0 -translate-y-1/2", delay: 3, active: true }
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: item.delay * 0.2 }}
-                  className={`absolute ${item.pos} w-16 h-16 rounded-xl border ${item.active ? 'bg-brand-red border-brand-red shadow-[0_0_30px_rgba(192,0,0,0.4)]' : 'bg-slate-900 border-white/10'} flex items-center justify-center text-white z-20`}
-                >
-                  <item.icon size={24} />
-                  {item.active && (
-                    <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-4 h-8 bg-brand-red rounded-l-md flex flex-col justify-around py-1">
-                      <div className="w-1 h-1 bg-white/50 rounded-full mx-auto" />
-                      <div className="w-1 h-1 bg-white/50 rounded-full mx-auto" />
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-
-              {/* Connecting Lines */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/5 border-dashed border-t" />
-                <div className="absolute left-1/2 top-0 w-[1px] h-full bg-white/5 border-dashed border-l" />
-              </div>
-
-              {/* Status Indicators (Left Side) */}
-              <div className="absolute left-0 top-1/4 space-y-4">
-                {[1, 2, 3, 4, 5].map(i => (
-                  <div key={i} className="w-1 h-1 bg-white/20 rounded-full" />
-                ))}
-              </div>
-            </div>
-
-            {/* Right Side: Content */}
-            <div className="text-white">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-2 h-2 bg-brand-red" />
-                <span className="text-[10px] font-mono tracking-[0.3em] text-white/40 uppercase">SYSTEM_ARCHITECTURE_EXPLODED_VIEW</span>
-              </div>
-              
-              <h2 className="text-white text-5xl md:text-7xl font-display font-black leading-none mb-12">
-                BUILD THE <br />
-                <span className="text-brand-red">UNTHINKABLE.</span>
-              </h2>
-
-              <div className="bg-slate-900/50 border border-white/5 rounded-3xl p-8 mb-8 backdrop-blur-sm">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-10 h-10 rounded-lg bg-brand-red/10 flex items-center justify-center text-brand-red">
-                    <Network size={20} />
-                  </div>
-                  <h4 className="text-xl font-display font-bold tracking-tight uppercase">LOAD_BALANCER</h4>
-                </div>
-                <p className="text-white/40 text-lg leading-relaxed">
-                  Distributing traffic across global clusters with 0ms overhead. Engineered for massive scale and absolute reliability.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-slate-900/50 border border-white/5 rounded-2xl p-6 backdrop-blur-sm">
-                  <p className="text-[10px] font-mono text-white/40 uppercase tracking-widest mb-2">THROUGHPUT</p>
-                  <p className="text-2xl font-display font-bold">100k+ REQ/S</p>
-                </div>
-                <div className="bg-slate-900/50 border border-white/5 rounded-2xl p-6 backdrop-blur-sm">
-                  <p className="text-[10px] font-mono text-white/40 uppercase tracking-widest mb-2">AVAILABILITY</p>
-                  <p className="text-2xl font-display font-bold">99.999%</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Technical Footer Bar */}
-        <div className="absolute bottom-0 left-0 w-full border-t border-white/5 bg-slate-950/80 backdrop-blur-md py-3 px-6">
-          <div className="container-custom flex flex-wrap items-center justify-between gap-4 text-[10px] font-mono text-white/20 uppercase tracking-widest">
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>COADEMIC_CORE_STABLE</span>
-              </div>
-              <span>LAT: 37.7749</span>
-              <span>LNG: -122.4194</span>
-              <span>SYS_LOAD: 12.4%</span>
-            </div>
-            <div className="flex items-center gap-6">
-              <span>MEMORY_USAGE: 4.2GB</span>
-              <span>THREAD_COUNT: 128</span>
-              <span>ENCRYPTION: AES-256</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Command Icon (Bottom Right) */}
-        <div className="absolute bottom-12 right-12 z-30 hidden md:block">
-          <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/40 hover:text-white hover:border-white transition-all duration-300 cursor-pointer group">
-            <div className="relative">
-              <div className="absolute -inset-1 rounded-full border border-brand-red opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="w-5 h-5 flex items-center justify-center">⌘</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Live Workshop Preview */}
       <section className="section-padding">
         <div className="container-custom">
@@ -717,7 +632,7 @@ export default function WhyUs() {
               </div>
               <div className="relative bg-slate-900 overflow-hidden group">
                 <img 
-                  src="https://picsum.photos/seed/workshop/1200/800"
+                  src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80"
                   className="w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                   alt="Workshop"

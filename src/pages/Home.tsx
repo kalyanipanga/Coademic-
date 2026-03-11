@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
 import { 
   ArrowRight, Code, Briefcase, Users, CheckCircle2, Terminal, 
-  FileText, BookOpen, Share2, BarChart3, Video, GitBranch, Globe, Cpu 
+  FileText, BookOpen, Share2, BarChart3, Video, GitBranch, Globe, Cpu,
+  MessageSquare
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BackgroundLines } from "../components/ui/background-lines";
@@ -111,150 +112,261 @@ export default function Home() {
   return (
     <div className="overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative pt-16 pb-32 px-6 max-w-7xl mx-auto min-h-[90vh] flex flex-col justify-center">
-        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-16 items-center">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative z-10"
-          >
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-brand-red/20 bg-white text-brand-red text-[10px] font-bold tracking-[0.2em] uppercase mb-12 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-brand-red animate-pulse" />
-              Premium IT Career Platform
-            </div>
-            
-            <h1 className="mb-8 slam-in text-[4rem] md:text-[6rem] leading-[1.1] tracking-tight font-sans font-bold text-slate-900 normal-case">
-              Master <span className="text-brand-red">Interviews</span> <br />
-              That Actually Get<br />You Hired
-            </h1>
-            
-            <p className="text-xl text-slate-500 mb-12 max-w-xl leading-relaxed">
-              Advanced IT preparation. Real mock interviews. Built-in coding practice. Everything in one premium platform.
-            </p>
-            
-            <div className="grid grid-cols-3 gap-8 border-t border-slate-100 pt-12 mb-16">
-              <div className="flex flex-col">
-                <span className="text-3xl font-bold text-slate-900">5,000+</span>
-                <span className="text-sm text-slate-500">Students</span>
-              </div>
-              <div className="flex flex-col border-l border-slate-200 pl-8">
-                <span className="text-3xl font-bold text-slate-900">IT Track</span>
-                <span className="text-sm text-slate-500">Specialized Mastery</span>
-              </div>
-              <div className="flex flex-col border-l border-slate-200 pl-8">
-                <span className="text-3xl font-bold text-slate-900">Live</span>
-                <span className="text-sm text-slate-500">Mock Support</span>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-6">
-              <Link to="/dashboard" className="bg-brand-red text-white px-8 py-4 rounded-full font-bold transition-all duration-300 hover:bg-brand-red/90 flex items-center gap-2">
-                Get Started <ArrowRight size={18} />
-              </Link>
-              <button className="border border-brand-red text-brand-red px-8 py-4 rounded-full font-bold transition-all duration-300 hover:bg-brand-red/5">
-                View Demo
-              </button>
-            </div>
-          </motion.div>
-
-          <div className="relative h-[600px] hidden lg:block perspective-1000">
-            {/* Main Dashboard Preview */}
-            <motion.div
-              initial={{ opacity: 0, rotateY: -20, x: 100 }}
-              animate={{ opacity: 1, rotateY: -10, x: 0 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="absolute inset-0 bg-white border-2 border-slate-900 rounded-[40px] shadow-[40px_40px_0_rgba(192,0,0,0.1)] overflow-hidden"
-            >
-              <div className="h-12 border-b-2 border-slate-900 bg-slate-900 flex items-center px-6 gap-2">
-                <div className="w-3 h-3 rounded-full bg-brand-red" />
-                <div className="w-3 h-3 rounded-full bg-white/20" />
-                <div className="w-3 h-3 rounded-full bg-white/20" />
-                <div className="ml-4 h-2 w-32 rounded-full bg-white/10" />
-              </div>
-              <div className="p-8 space-y-6">
-                <div className="flex justify-between items-center">
-                  <div className="w-40 h-8 bg-brand-red/10 rounded-lg" />
-                  <div className="w-12 h-12 rounded-full bg-slate-100" />
-                </div>
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="h-32 bg-slate-50 rounded-2xl border-2 border-slate-100" />
-                  <div className="h-32 bg-brand-red/5 rounded-2xl border-2 border-brand-red/10" />
-                </div>
-                <div className="h-48 bg-slate-900 rounded-2xl p-6">
-                  <div className="w-full h-2 bg-brand-red/40 rounded-full mb-4" />
-                  <div className="w-3/4 h-2 bg-white/10 rounded-full mb-4" />
-                  <div className="w-1/2 h-2 bg-white/10 rounded-full" />
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Floating Elements */}
-            <motion.div
-              animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-10 -right-10 w-48 h-48 bg-brand-red rounded-3xl shadow-2xl flex flex-col items-center justify-center text-white p-6 text-center"
-            >
-              <Video size={40} className="mb-4" />
-              <span className="font-display text-xl leading-none">LIVE MOCK</span>
-              <span className="text-[10px] uppercase tracking-widest opacity-70 mt-2">Real-time</span>
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, 20, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-10 -left-10 w-56 p-6 bg-white border-2 border-slate-900 rounded-3xl shadow-2xl"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-10 h-10 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red">
-                  <Users size={20} />
-                </div>
-                <span className="font-bold text-sm">HR MOCK</span>
-              </div>
-              <div className="w-full h-2 bg-slate-100 rounded-full" />
-            </motion.div>
+      <section className="relative pt-10 pb-32 px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-red/30 bg-brand-red/5 text-brand-red text-sm font-semibold mb-8">
+            <span className="w-2 h-2 rounded-full bg-brand-red animate-pulse" />
+            PREMIUM IT CAREER PLATFORM
           </div>
-        </div>
-      </section>
-
-      {/* Tracks Section */}
-      <section className="py-32 px-6 bg-white border-y border-slate-100">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-24 items-end mb-24">
-            <div>
-              <span className="label-tag mb-6 inline-block">Our Programs</span>
-              <h2 className="text-slate-900">Comprehensive <br /> <span className="text-brand-red">IT Training</span></h2>
+          
+          <h1 className="text-6xl md:text-7xl font-display font-bold leading-[1.1] mb-6">
+            Master <span className="text-brand-red">Interviews</span> That Actually Get You Hired
+          </h1>
+          
+          <p className="text-xl text-text-secondary mb-10 max-w-xl leading-relaxed">
+            Coademic is a next-generation EdTech platform focused on career outcomes, not just courses. Through industry workshops, structured training programs, realistic mock interviews, and integrated coding practice, we equip students with the skills and confidence required to succeed in real IT interviews.
+          </p>
+          
+          <div className="flex items-center gap-8 mb-12">
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold text-slate-900">5,000+</span>
+              <span className="text-sm text-slate-500">Students</span>
             </div>
-            <p className="text-xl text-slate-500 font-serif italic leading-relaxed">
-              Master the skills needed to crack interviews at top tech companies like Google, Amazon, and Microsoft.
-            </p>
+            <div className="w-px h-10 bg-brand-red/20" />
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold text-slate-900">IT Track</span>
+              <span className="text-sm text-slate-500">Specialized Mastery</span>
+            </div>
+            <div className="w-px h-10 bg-brand-red/20" />
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold text-slate-900">Live</span>
+              <span className="text-sm text-slate-500">Mock Support</span>
+            </div>
+          </div>
+          
+          <div className="flex flex-wrap gap-4 mb-12">
+            <Link to="/dashboard" className="btn-primary flex items-center gap-2">
+              Get Started <ArrowRight size={18} />
+            </Link>
+            <button className="btn-secondary">View Demo</button>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {careerPaths.slice(0, 6).map((path, i) => (
+          <div className="flex flex-wrap gap-3">
+            {careerPaths.map((path, i) => (
               <motion.div
                 key={path.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="luxury-card group"
+                initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ delay: i * 0.03, duration: 0.4 }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -2,
+                  backgroundColor: "rgba(192, 0, 0, 0.05)"
+                }}
+                className="group rounded-full"
               >
-                <div className="w-16 h-16 rounded-2xl bg-brand-red/5 flex items-center justify-center text-brand-red mb-8 group-hover:bg-brand-red group-hover:text-white transition-all duration-500">
-                  <path.icon size={32} />
-                </div>
-                <h3 className="text-2xl font-display mb-4 text-slate-900">{path.name}</h3>
-                <p className="text-slate-500 text-sm mb-8">
-                  Structured preparation module designed by industry experts to ensure you're ready for any challenge.
-                </p>
-                <Link to={path.link} className="inline-flex items-center gap-2 text-brand-red font-bold text-xs uppercase tracking-widest hover:gap-4 transition-all">
-                  Learn More <ArrowRight size={16} />
+                <Link
+                  to={path.link}
+                  className="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-brand-red/20 shadow-sm hover:border-brand-red hover:shadow-md transition-all duration-300"
+                >
+                  <div className="text-brand-red group-hover:scale-110 transition-transform duration-300">
+                    <path.icon size={14} />
+                  </div>
+                  <span className="text-xs font-bold text-slate-700 group-hover:text-brand-red transition-colors">{path.name}</span>
                 </Link>
               </motion.div>
             ))}
           </div>
+        </motion.div>
+
+        <div className="relative h-[700px] w-full hidden lg:block perspective-1000">
+          {/* Dashboard Preview Card (Inspired by Video 1) */}
+          <motion.div
+            initial={{ opacity: 0, y: 40, rotateX: 10, rotateY: -10 }}
+            animate={{ opacity: 1, y: 0, rotateX: 0, rotateY: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="absolute top-[10%] left-[5%] w-[85%] h-[75%] bg-slate-950/80 backdrop-blur-2xl border border-white/10 rounded-[32px] shadow-2xl overflow-hidden z-0"
+          >
+            {/* Sidebar Mock */}
+            <div className="absolute left-0 top-0 bottom-0 w-[20%] border-r border-white/5 p-6 space-y-8">
+              <div className="w-10 h-10 rounded-xl bg-brand-red/20 flex items-center justify-center text-brand-red">
+                <Code size={20} />
+              </div>
+              <div className="space-y-4">
+                {[1, 2, 3, 4].map(i => (
+                  <div key={i} className="w-full h-2 rounded-full bg-white/5" />
+                ))}
+              </div>
+            </div>
+            
+            {/* Main Content Mock */}
+            <div className="absolute left-[20%] right-0 top-0 bottom-0 p-10">
+              <div className="flex justify-between items-center mb-12">
+                <div className="w-48 h-4 rounded-full bg-white/10" />
+                <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-white/5" />
+                  <div className="w-24 h-8 rounded-full bg-brand-red/20" />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-8">
+                <div className="h-40 rounded-2xl bg-gradient-to-br from-brand-red/20 to-transparent border border-white/5 p-6">
+                  <div className="w-12 h-12 rounded-lg bg-white/5 mb-4" />
+                  <div className="w-3/4 h-3 rounded-full bg-white/10 mb-2" />
+                  <div className="w-1/2 h-2 rounded-full bg-white/5" />
+                </div>
+                <div className="h-40 rounded-2xl bg-white/5 border border-white/5 p-6">
+                  <div className="w-12 h-12 rounded-lg bg-white/5 mb-4" />
+                  <div className="w-3/4 h-3 rounded-full bg-white/10 mb-2" />
+                  <div className="w-1/2 h-2 rounded-full bg-white/5" />
+                </div>
+              </div>
+            </div>
+            
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
+          </motion.div>
+
+          {/* Floating Feature Cards (Inspired by Video 2) */}
+          
+          {/* Resume Kit */}
+          <motion.div
+            initial={{ opacity: 0, x: 50, y: -20 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            whileHover={{ y: -10, scale: 1.02 }}
+            className="absolute top-[5%] right-[5%] w-[240px] p-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl z-10 group cursor-pointer"
+          >
+            <div className="w-10 h-10 rounded-xl bg-brand-red/20 flex items-center justify-center text-brand-red mb-4 group-hover:bg-brand-red group-hover:text-white transition-all">
+              <FileText size={20} />
+            </div>
+            <h4 className="text-white font-bold mb-1">Resume Kit</h4>
+            <p className="text-white/50 text-xs">ATS-optimized templates</p>
+            <div className="mt-4 w-full h-1 bg-white/5 rounded-full overflow-hidden">
+              <motion.div 
+                initial={{ width: 0 }}
+                animate={{ width: "85%" }}
+                transition={{ delay: 1, duration: 1.5 }}
+                className="h-full bg-brand-red" 
+              />
+            </div>
+          </motion.div>
+
+          {/* Coding IDE */}
+          <motion.div
+            initial={{ opacity: 0, x: -50, y: 50 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            whileHover={{ y: -10, scale: 1.02 }}
+            className="absolute bottom-[15%] left-[0%] w-[220px] p-6 bg-slate-900/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl z-20 group cursor-pointer"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex gap-1">
+                <div className="w-2 h-2 rounded-full bg-red-500/50" />
+                <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
+                <div className="w-2 h-2 rounded-full bg-green-500/50" />
+              </div>
+              <div className="w-20 h-2 rounded-full bg-white/5" />
+            </div>
+            <div className="space-y-2">
+              <div className="w-full h-2 rounded-full bg-brand-red/40" />
+              <div className="w-3/4 h-2 rounded-full bg-white/10" />
+              <div className="w-1/2 h-2 rounded-full bg-white/10" />
+            </div>
+            <div className="mt-6 flex items-center justify-between">
+              <span className="text-white font-bold text-sm">Coding IDE</span>
+              <Cpu size={16} className="text-brand-red" />
+            </div>
+          </motion.div>
+
+          {/* Live Mock */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+            whileHover={{ y: -10, scale: 1.05 }}
+            className="absolute top-[40%] right-[-5%] w-[200px] aspect-square bg-gradient-to-br from-brand-red to-brand-red/60 rounded-3xl shadow-2xl z-30 flex flex-col items-center justify-center p-6 text-white text-center group cursor-pointer"
+          >
+            <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <Video size={32} />
+            </div>
+            <span className="font-bold text-lg">Live Mock</span>
+            <span className="text-white/70 text-xs">Real-time Feedback</span>
+          </motion.div>
+
+          {/* HR Mock */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+            whileHover={{ y: -10 }}
+            className="absolute bottom-[5%] right-[15%] w-[260px] p-5 bg-white backdrop-blur-xl border border-slate-200 rounded-2xl shadow-xl z-10 flex items-center gap-4 group cursor-pointer"
+          >
+            <div className="w-12 h-12 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red">
+              <Users size={24} />
+            </div>
+            <div>
+              <h4 className="text-slate-900 font-bold text-sm">HR Mock Session</h4>
+              <p className="text-slate-500 text-[10px]">Upcoming: Today at 4:00 PM</p>
+            </div>
+          </motion.div>
+
+          {/* Glow Effects */}
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-brand-red/20 blur-[120px] -z-10 rounded-full animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-red/10 blur-[150px] -z-10 rounded-full" />
         </div>
       </section>
+
+      {/* Tracks Section */}
+      <BackgroundLines className="py-24 px-6">
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-display font-bold mb-4 text-slate-900">Comprehensive IT Training</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto">
+              Master the skills needed to crack interviews at top tech companies like Google, Amazon, and Microsoft.
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <motion.div 
+              whileHover={{ y: -10 }}
+              className="bg-white rounded-[40px] p-12 border border-slate-200 shadow-2xl relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/5 blur-[100px] rounded-full -z-10" />
+              <span className="text-xs font-bold text-brand-red tracking-widest uppercase mb-4 block">Software Careers</span>
+              <h3 className="text-4xl font-display font-bold mb-8 text-slate-900">Crack IT Interviews</h3>
+              <ul className="grid md:grid-cols-2 gap-6 mb-12">
+                {["DSA Preparation", "HR Questions", "Resume Templates", "Built-in Coding IDE", "Mock Interviews", "Version Controls"].map(item => (
+                  <li key={item} className="flex items-center gap-4 text-slate-700 font-medium">
+                    <div className="w-6 h-6 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red">
+                      <CheckCircle2 size={14} />
+                    </div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-10 border-t border-slate-100">
+                <div>
+                  <span className="text-4xl font-bold text-brand-red">Free Access</span>
+                  <p className="text-slate-500 text-sm mt-1">Limited time offer for students</p>
+                </div>
+                <div className="flex flex-wrap items-center gap-4">
+                  <Link to="/login" className="btn-primary px-8 py-4 text-lg">Get Started Now</Link>
+                  <button 
+                    onClick={() => enquireNow('Crack IT Interviews', 'training')}
+                    className="btn-secondary px-8 py-4 text-lg flex items-center gap-2"
+                  >
+                    Enquire Now <WhatsAppIcon size={20} />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </BackgroundLines>
 
       {/* IDE Preview Section */}
       <section className="py-24 px-6 max-w-7xl mx-auto">
@@ -281,26 +393,105 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="luxury-card p-0 overflow-hidden border-slate-700 shadow-2xl shadow-slate-900/50 bg-slate-950">
-            <div className="bg-slate-900 px-4 py-2 border-b border-slate-800 flex items-center gap-2">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-                <div className="w-3 h-3 rounded-full bg-green-500/50" />
+          <div className="relative flex items-center justify-center min-h-[800px]">
+            {/* Layered Rotating Rings */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute w-[500px] h-[500px] border border-dashed border-brand-red/20 rounded-full"
+              />
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+                className="absolute w-[650px] h-[650px] border border-dashed border-slate-700/30 rounded-full"
+              />
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+                className="absolute w-[800px] h-[800px] border border-dashed border-brand-red/10 rounded-full"
+              />
+            </div>
+
+            {/* Floating Energy Particles */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              {[...Array(20)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ 
+                    x: Math.random() * 100 + "%", 
+                    y: "110%", 
+                    opacity: 0,
+                    scale: Math.random() * 0.5 + 0.5 
+                  }}
+                  animate={{ 
+                    y: "-10%", 
+                    opacity: [0, 0.8, 0],
+                    x: (Math.random() * 100 - 50) + "%"
+                  }}
+                  transition={{ 
+                    duration: Math.random() * 5 + 5, 
+                    repeat: Infinity, 
+                    delay: Math.random() * 5,
+                    ease: "easeInOut"
+                  }}
+                  className="absolute w-1.5 h-1.5 bg-brand-red rounded-full blur-[1px]"
+                />
+              ))}
+            </div>
+
+            {/* Orbiting Skill System */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              {[
+                { icon: Code, color: "bg-blue-500", speed: 20, radius: 250 },
+                { icon: Terminal, color: "bg-emerald-500", speed: 28, radius: 320 },
+                { icon: Briefcase, color: "bg-amber-500", speed: 35, radius: 390 },
+                { icon: MessageSquare, color: "bg-brand-red", speed: 42, radius: 460 },
+              ].map((skill, i) => (
+                <motion.div
+                  key={i}
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: skill.speed, repeat: Infinity, ease: "linear" }}
+                  className="absolute"
+                  style={{ width: skill.radius * 2, height: skill.radius * 2 }}
+                >
+                  <motion.div
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: skill.speed, repeat: Infinity, ease: "linear" }}
+                    className={`absolute top-0 left-1/2 -translate-x-1/2 w-10 h-10 rounded-xl ${skill.color} shadow-lg flex items-center justify-center text-white pointer-events-auto cursor-pointer hover:scale-110 transition-transform`}
+                  >
+                    <skill.icon size={20} />
+                  </motion.div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* The IDE Card */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              className="luxury-card p-0 overflow-hidden border-slate-700 shadow-2xl shadow-slate-900/50 bg-slate-950 relative z-10 w-full max-w-lg"
+            >
+              <div className="bg-slate-900 px-4 py-2 border-b border-slate-800 flex items-center gap-2">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-500/50" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/50" />
+                </div>
+                <span className="text-xs text-slate-400 font-mono ml-4">interview_challenge.py</span>
               </div>
-              <span className="text-xs text-slate-400 font-mono ml-4">interview_challenge.py</span>
-            </div>
-            <div className="p-6 font-mono text-sm bg-slate-950">
-              <pre className="text-blue-400">def <span className="text-yellow-400">solve_problem</span>(nums, target):</pre>
-              <pre className="text-slate-500 ml-4 italic"># Find two numbers that sum to target</pre>
-              <pre className="text-white ml-4">seen = {}</pre>
-              <pre className="text-white ml-4">for i, num in enumerate(nums):</pre>
-              <pre className="text-white ml-8">diff = target - num</pre>
-              <pre className="text-white ml-8">if diff in seen:</pre>
-              <pre className="text-brand-red ml-12 font-bold">return [seen[diff], i]</pre>
-              <pre className="text-white ml-8">seen[num] = i</pre>
-              <pre className="text-white ml-4">return []</pre>
-            </div>
+              <div className="p-6 font-mono text-sm bg-slate-950">
+                <pre className="text-blue-400">def <span className="text-yellow-400">solve_problem</span>(nums, target):</pre>
+                <pre className="text-slate-500 ml-4 italic"># Find two numbers that sum to target</pre>
+                <pre className="text-white ml-4">seen = {}</pre>
+                <pre className="text-white ml-4">for i, num in enumerate(nums):</pre>
+                <pre className="text-white ml-8">diff = target - num</pre>
+                <pre className="text-white ml-8">if diff in seen:</pre>
+                <pre className="text-brand-red ml-12 font-bold">return [seen[diff], i]</pre>
+                <pre className="text-white ml-8">seen[num] = i</pre>
+                <pre className="text-white ml-4">return []</pre>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
