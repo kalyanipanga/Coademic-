@@ -1,0 +1,5 @@
+{
+  "name": "Coademic Pro",
+  "description": "Premium IT career platform for interview preparation. Master DSA, coding, and system design with real mock interviews.",
+  "requestFramePermissions": ["camera", "microphone"]
+}
