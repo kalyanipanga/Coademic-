@@ -161,13 +161,12 @@ export default function Dashboard({ user }: DashboardProps) {
       <aside className="w-72 border-r border-slate-100 bg-white p-8 hidden lg:block sticky top-20 h-[calc(100vh-80px)]">
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-brand-red flex items-center justify-center text-white shadow-lg shadow-brand-red/20">
-              <Layout size={20} />
-            </div>
-            <div>
-              <h2 className="text-lg font-bold text-slate-900 leading-none mb-1">Coademic</h2>
-              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Premium Portal</p>
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="Coademic Logo" 
+              className="h-10 w-auto"
+              referrerPolicy="no-referrer"
+            />
           </div>
         </div>
 

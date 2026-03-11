@@ -40,14 +40,13 @@ export default function Register() {
       >
         <div className="luxury-card">
           <div className="flex justify-center mb-6">
-            <Link to="/" className="flex items-center gap-2 text-2xl font-display font-bold tracking-tight">
-              <div className="w-10 h-10 rounded-xl bg-brand-red flex items-center justify-center text-white shadow-red-glow font-mono text-lg">
-                &lt;/_
-              </div>
-              <div className="flex items-center">
-                <span className="text-brand-red">Coa</span>
-                <span className="bg-gradient-to-r from-brand-red to-slate-900 bg-clip-text text-transparent">demic</span>
-              </div>
+            <Link to="/" className="flex items-center">
+              <img 
+                src="/logo.png" 
+                alt="Coademic Logo" 
+                className="h-12 w-auto"
+                referrerPolicy="no-referrer"
+              />
             </Link>
           </div>
           <div className="text-center mb-10">

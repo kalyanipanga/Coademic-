@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { 
   Info, BookOpen, Briefcase, GraduationCap, 
-  Trophy, Star, Phone, Menu, X, LogOut 
+  Trophy, Star, Phone, Menu, X, LogOut, Users 
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { User } from "../types";
@@ -30,6 +30,7 @@ export default function Navbar({ user, onLogout }: NavbarProps) {
     { name: "Our Story", path: "/story", icon: BookOpen },
     { name: "Our Services", path: "/services", icon: Briefcase },
     { name: "Courses", path: "/courses", icon: GraduationCap },
+    { name: "Workshops", path: "/workshops", icon: Users },
     { name: "Placements", path: "/placements", icon: Trophy },
     { name: "Why Us", path: "/why-us", icon: Star },
     { name: "Contact", path: "/contact", icon: Phone },
