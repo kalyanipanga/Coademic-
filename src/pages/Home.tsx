@@ -393,29 +393,29 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="relative flex items-center justify-center min-h-[800px]">
+          <div className="relative flex items-center justify-center min-h-[700px]">
             {/* Layered Rotating Rings */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[500px] h-[500px] border border-dashed border-brand-red/20 rounded-full"
+                className="absolute w-[400px] h-[400px] border border-dashed border-brand-red/20 rounded-full"
               />
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[650px] h-[650px] border border-dashed border-slate-700/30 rounded-full"
+                className="absolute w-[520px] h-[520px] border border-dashed border-slate-700/30 rounded-full"
               />
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[800px] h-[800px] border border-dashed border-brand-red/10 rounded-full"
+                className="absolute w-[650px] h-[650px] border border-dashed border-brand-red/10 rounded-full"
               />
             </div>
 
             {/* Floating Energy Particles */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
-              {[...Array(20)].map((_, i) => (
+              {[...Array(18)].map((_, i) => (
                 <motion.div
                   key={i}
                   initial={{ 
@@ -443,10 +443,10 @@ export default function Home() {
             {/* Orbiting Skill System */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               {[
-                { icon: Code, color: "bg-blue-500", speed: 20, radius: 250 },
-                { icon: Terminal, color: "bg-emerald-500", speed: 28, radius: 320 },
-                { icon: Briefcase, color: "bg-amber-500", speed: 35, radius: 390 },
-                { icon: MessageSquare, color: "bg-brand-red", speed: 42, radius: 460 },
+                { icon: Code, color: "bg-blue-500", speed: 20, radius: 210 },
+                { icon: Terminal, color: "bg-emerald-500", speed: 28, radius: 270 },
+                { icon: Briefcase, color: "bg-amber-500", speed: 35, radius: 330 },
+                { icon: MessageSquare, color: "bg-brand-red", speed: 42, radius: 390 },
               ].map((skill, i) => (
                 <motion.div
                   key={i}
