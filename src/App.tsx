@@ -18,6 +18,8 @@ import Services from "./pages/Services";
 import Courses from "./pages/Courses";
 import Placements from "./pages/Placements";
 import WhyUs from "./pages/WhyUs";
+import ResetPassword from "./pages/ResetPassword";
+import SetPassword from "./pages/SetPassword";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
@@ -80,6 +82,8 @@ export default function App() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/cookies" element={<CookiePolicy />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/set-password" element={<SetPassword />} />
             <Route 
               path="/dashboard" 
               element={user ? <Dashboard user={user} /> : <Navigate to="/login" />} 

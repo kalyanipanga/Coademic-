@@ -143,14 +143,25 @@ export default function Login({ onLogin }: LoginProps) {
               </div>
             </div>
 
-            <div className="flex items-center justify-between text-sm">
-              <label className="flex items-center gap-2 text-slate-600 cursor-pointer">
-                <input type="checkbox" className="w-4 h-4 rounded border-slate-300 text-brand-red focus:ring-brand-red" />
-                Remember me
-              </label>
-              <button type="button" className="text-brand-red font-bold hover:underline">
-                Forgot password?
-              </button>
+            <div className="flex flex-col gap-3 text-sm">
+              <div className="flex items-center justify-between">
+                <label className="flex items-center gap-2 text-slate-600 cursor-pointer">
+                  <input type="checkbox" className="w-4 h-4 rounded border-slate-300 text-brand-red focus:ring-brand-red" />
+                  Remember me
+                </label>
+                <div className="flex items-center gap-1">
+                  <span className="text-slate-500">Forgot password?</span>
+                  <Link to="/reset-password" title="Reset your password" id="reset-password-link" className="text-brand-red font-bold hover:underline">
+                    Reset password
+                  </Link>
+                </div>
+              </div>
+              <div className="flex items-center gap-1">
+                <span className="text-slate-500">Don't have a password yet?</span>
+                <Link to="/set-password" title="Set your password" id="set-password-link" className="text-brand-red font-bold hover:underline">
+                  Set password
+                </Link>
+              </div>
             </div>
 
             <button 
