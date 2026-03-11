@@ -226,7 +226,7 @@ export default function Placements() {
                     whileInView={{ scale: [0, 1.5, 1], opacity: [0, 1, 0.5] }}
                     transition={{ 
                       duration: 2, 
-                      repeat: Infinity, 
+                      repeat: 1000000, 
                       delay: dot.delay 
                     }}
                     className="absolute w-4 h-4 bg-brand-red rounded-full"
@@ -558,9 +558,27 @@ export default function Placements() {
           className="mt-32 p-12 md:p-20 rounded-[48px] bg-brand-red text-white text-center relative overflow-hidden"
         >
           <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-            <div className="absolute top-10 left-10 animate-float"><Star size={40} /></div>
-            <div className="absolute bottom-20 right-20 animate-float" style={{ animationDelay: '2s' }}><Trophy size={60} /></div>
-            <div className="absolute top-1/2 left-1/4 animate-float" style={{ animationDelay: '1s' }}><Zap size={30} /></div>
+            <motion.div 
+              animate={{ y: [0, -20, 0] }}
+              transition={{ duration: 6, repeat: 1000000, ease: "easeInOut" }}
+              className="absolute top-10 left-10"
+            >
+              <Star size={40} />
+            </motion.div>
+            <motion.div 
+              animate={{ y: [0, -30, 0] }}
+              transition={{ duration: 8, repeat: 1000000, ease: "easeInOut", delay: 1 }}
+              className="absolute bottom-20 right-20"
+            >
+              <Trophy size={60} />
+            </motion.div>
+            <motion.div 
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 5, repeat: 1000000, ease: "easeInOut", delay: 0.5 }}
+              className="absolute top-1/2 left-1/4"
+            >
+              <Zap size={30} />
+            </motion.div>
           </div>
           
           <div className="relative z-10">
