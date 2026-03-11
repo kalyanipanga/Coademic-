@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { 
   CheckCircle2, 
   Star, 
@@ -63,7 +64,8 @@ const roadmap = [
     title: "Core Foundations", 
     desc: "Mastering the fundamentals, building a growth mindset, and establishing technical depth.",
     icon: Target,
-    color: "bg-brand-red"
+    color: "bg-brand-red",
+    image: "https://picsum.photos/seed/foundations/800/600"
   },
   { 
     day: "Day 26-50", 
@@ -71,7 +73,8 @@ const roadmap = [
     title: "Skill Acceleration", 
     desc: "Rapidly scaling your abilities through intensive building and advanced architectural patterns.",
     icon: TrendingUp,
-    color: "bg-red-600"
+    color: "bg-red-600",
+    image: "https://picsum.photos/seed/acceleration/800/600"
   },
   { 
     day: "Day 51-75", 
@@ -79,7 +82,8 @@ const roadmap = [
     title: "Performance Simulation", 
     desc: "Testing your limits with high-pressure simulations and real-world project integration.",
     icon: Cpu,
-    color: "bg-red-500"
+    color: "bg-red-500",
+    image: "https://picsum.photos/seed/simulation/800/600"
   },
   { 
     day: "Day 76-100", 
@@ -87,7 +91,8 @@ const roadmap = [
     title: "Career Transformation", 
     desc: "Finalizing your professional brand and launching into elite engineering roles.",
     icon: Rocket,
-    color: "bg-red-400"
+    color: "bg-red-400",
+    image: "https://picsum.photos/seed/transformation/800/600"
   }
 ];
 
@@ -101,6 +106,8 @@ const sectors = [
 ];
 
 export default function WhyUs() {
+  const [activeStep, setActiveStep] = useState(0);
+
   return (
     <div className="bg-white selection:bg-brand-red selection:text-white overflow-x-hidden">
       {/* Hero Section */}
@@ -327,48 +334,102 @@ export default function WhyUs() {
               THE JOURNEY TO ELITE
             </motion.div>
             <h2 className="mb-6">The 100-Day Success Roadmap</h2>
-            <p className="text-lg">A high-intensity, structured path engineered to transform your professional trajectory.</p>
+            <p className="text-lg">A high-intensity, structured path engineered to transform your professional trajectory. Click on a phase to see more.</p>
           </div>
 
-          <div className="relative">
-            {/* Connecting Line */}
-            <div className="absolute top-[120px] left-0 w-full h-[2px] bg-gradient-to-r from-brand-red/5 via-brand-red/20 to-brand-red/5 hidden lg:block" />
-            
-            <div className="grid lg:grid-cols-4 gap-8">
+          <div className="grid lg:grid-cols-12 gap-12 items-start">
+            {/* Roadmap Steps */}
+            <div className="lg:col-span-5 space-y-6">
               {roadmap.map((step, i) => (
                 <motion.div
                   key={step.day}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.15, duration: 0.6 }}
-                  className="relative group"
+                  transition={{ delay: i * 0.1 }}
+                  onClick={() => setActiveStep(i)}
+                  className={`relative cursor-pointer p-8 rounded-[32px] border transition-all duration-500 ${
+                    activeStep === i 
+                      ? 'bg-white border-brand-red shadow-luxury scale-[1.02]' 
+                      : 'bg-white/50 border-slate-100 hover:border-brand-red/30 grayscale opacity-60 hover:grayscale-0 hover:opacity-100'
+                  }`}
                 >
-                  {/* Phase Badge */}
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
-                    <div className="px-4 py-1 rounded-full bg-slate-950 text-white text-[10px] font-black uppercase tracking-widest shadow-xl border border-white/10">
-                      {step.phase}
+                  <div className="flex items-center gap-6">
+                    <div className={`w-14 h-14 rounded-2xl ${step.color} text-white flex items-center justify-center shrink-0 shadow-lg`}>
+                      <step.icon size={24} />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-3 mb-1">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-brand-red">{step.phase}</span>
+                        <span className="w-1 h-1 rounded-full bg-slate-300" />
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{step.day}</span>
+                      </div>
+                      <h4 className="text-xl font-bold text-slate-900">{step.title}</h4>
                     </div>
                   </div>
-
-                  <div className="relative z-10 bg-white p-10 rounded-[40px] border border-slate-100 shadow-sm hover:shadow-luxury transition-all duration-500 group-hover:-translate-y-2 text-center">
-                    {/* Icon Circle */}
-                    <div className={`w-20 h-20 rounded-3xl ${step.color} text-white flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-brand-red/20 group-hover:rotate-6 transition-transform duration-500`}>
-                      <step.icon size={32} />
-                    </div>
-
-                    <div className="space-y-4">
-                      <p className="text-brand-red font-black text-xs uppercase tracking-widest">{step.day}</p>
-                      <h4 className="text-2xl font-display font-bold text-slate-900">{step.title}</h4>
-                      <div className="w-10 h-1 bg-brand-red/10 mx-auto rounded-full group-hover:w-20 transition-all duration-500" />
-                      <p className="text-slate-500 text-sm leading-relaxed">{step.desc}</p>
-                    </div>
-                  </div>
-
-                  {/* Connecting Dot (Mobile) */}
-                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-brand-red/20 lg:hidden" />
+                  {activeStep === i && (
+                    <motion.p 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      className="mt-4 text-slate-500 text-sm leading-relaxed pl-20"
+                    >
+                      {step.desc}
+                    </motion.p>
+                  )}
                 </motion.div>
               ))}
+            </div>
+
+            {/* Image Display Area */}
+            <div className="lg:col-span-7 sticky top-32">
+              <div className="relative aspect-video rounded-[40px] overflow-hidden shadow-luxury bg-slate-900">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeStep}
+                    initial={{ opacity: 0, scale: 1.1, filter: 'blur(20px)' }}
+                    animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                    exit={{ opacity: 0, scale: 0.9, filter: 'blur(20px)' }}
+                    transition={{ duration: 0.6, ease: "circOut" }}
+                    className="absolute inset-0"
+                  >
+                    <img 
+                      src={roadmap[activeStep].image}
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                      alt={roadmap[activeStep].title}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                    
+                    {/* Floating Info Card */}
+                    <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                      className="absolute bottom-8 left-8 right-8 p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl"
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-brand-red font-black text-[10px] uppercase tracking-[0.2em] mb-1">CURRENT PHASE</p>
+                          <h5 className="text-white text-2xl font-display font-bold">{roadmap[activeStep].title}</h5>
+                        </div>
+                        <div className="w-12 h-12 rounded-full bg-brand-red text-white flex items-center justify-center font-black">
+                          {activeStep + 1}
+                        </div>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Decorative Elements */}
+                <div className="absolute top-6 right-6 flex gap-2">
+                  {[0, 1, 2, 3].map(i => (
+                    <div 
+                      key={i} 
+                      className={`w-2 h-2 rounded-full transition-all duration-500 ${activeStep === i ? 'bg-brand-red w-6' : 'bg-white/20'}`} 
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -407,20 +468,94 @@ export default function WhyUs() {
             </div>
 
             <div className="relative">
-              <div className="aspect-square rounded-[40px] bg-white p-8 shadow-luxury flex items-center justify-center">
-                <div className="relative w-full h-full">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-32 h-32 rounded-full bg-brand-red/10 animate-ping" />
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-48 h-48 rounded-full border-2 border-dashed border-brand-red/20 animate-[spin_20s_linear_infinite]" />
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-white p-6 rounded-3xl shadow-xl border border-slate-100 text-center z-10">
-                      <Zap className="text-brand-red mx-auto mb-2" size={32} />
-                      <p className="font-bold text-slate-900">Career Ready</p>
+              <div className="aspect-square rounded-[40px] bg-white p-8 shadow-luxury flex items-center justify-center overflow-hidden">
+                <div className="relative w-full h-full flex items-center justify-center">
+                  {/* Background Glow */}
+                  <div className="absolute w-64 h-64 bg-brand-red/5 rounded-full blur-3xl animate-pulse" />
+                  
+                  {/* Rotating Rings */}
+                  <motion.div 
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                    className="absolute w-72 h-72 rounded-full border border-dashed border-brand-red/10"
+                  />
+                  <motion.div 
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                    className="absolute w-56 h-56 rounded-full border border-dashed border-brand-red/20"
+                  />
+                  
+                  {/* Pulsing Core */}
+                  <div className="absolute w-32 h-32 rounded-full bg-brand-red/5 animate-ping" />
+                  
+                  {/* Orbiting Icons */}
+                  {[
+                    { Icon: Code2, delay: 0, color: "text-blue-500" },
+                    { Icon: Terminal, delay: 1.5, color: "text-emerald-500" },
+                    { Icon: Briefcase, delay: 3, color: "text-amber-500" },
+                    { Icon: MessageSquare, delay: 4.5, color: "text-purple-500" }
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      animate={{ 
+                        rotate: 360,
+                      }}
+                      transition={{ 
+                        duration: 12, 
+                        repeat: Infinity, 
+                        ease: "linear",
+                        delay: item.delay
+                      }}
+                      className="absolute w-full h-full pointer-events-none"
+                    >
+                      <motion.div 
+                        animate={{ rotate: -360 }}
+                        transition={{ duration: 12, repeat: Infinity, ease: "linear", delay: item.delay }}
+                        className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-2xl shadow-lg border border-slate-50 flex items-center justify-center"
+                      >
+                        <item.Icon className={item.color} size={20} />
+                      </motion.div>
+                    </motion.div>
+                  ))}
+
+                  {/* Floating Particles */}
+                  {[...Array(6)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      animate={{ 
+                        y: [0, -20, 0],
+                        x: [0, Math.random() * 20 - 10, 0],
+                        opacity: [0.2, 0.5, 0.2]
+                      }}
+                      transition={{ 
+                        duration: 3 + Math.random() * 2, 
+                        repeat: Infinity,
+                        delay: Math.random() * 2
+                      }}
+                      className="absolute w-1.5 h-1.5 bg-brand-red rounded-full"
+                      style={{ 
+                        top: `${Math.random() * 100}%`, 
+                        left: `${Math.random() * 100}%` 
+                      }}
+                    />
+                  ))}
+
+                  {/* Central Card */}
+                  <motion.div 
+                    whileHover={{ scale: 1.05, rotate: -2 }}
+                    className="bg-white p-8 rounded-[32px] shadow-2xl border border-slate-100 text-center z-10 relative cursor-pointer group"
+                  >
+                    <div className="relative mb-4 inline-block">
+                      <div className="absolute inset-0 bg-brand-red/20 blur-xl rounded-full group-hover:bg-brand-red/40 transition-colors" />
+                      <Zap className="text-brand-red relative z-10 group-hover:scale-110 transition-transform" size={40} />
                     </div>
-                  </div>
+                    <p className="font-black text-slate-900 text-xl tracking-tight">Career Ready</p>
+                    <div className="flex gap-1 justify-center mt-2">
+                      {[1, 2, 3, 4, 5].map(star => (
+                        <Star key={star} size={12} className="fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
