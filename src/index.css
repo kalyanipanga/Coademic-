@@ -1,9 +1,9 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
 @theme {
   --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Anton", sans-serif;
+  --font-display: "Instrument Sans", sans-serif;
   --font-serif: "Libre Baskerville", serif;
 
   --color-brand-red: #C00000;
@@ -24,6 +24,12 @@
 
   --animate-scroll: scroll var(--animation-duration, 250s) var(--animation-direction, forwards) linear infinite;
   --animate-float: float 6s ease-in-out infinite;
+  --animate-marquee: marquee 30s linear infinite;
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 
   @keyframes scroll {
     to {
@@ -49,11 +55,11 @@
   }
 
   h1 {
-    @apply text-[3rem] md:text-[8rem] font-display uppercase leading-[0.85] tracking-[-0.02em];
+    @apply text-[2.5rem] md:text-[4.5rem] font-bold leading-[0.9] tracking-[-0.04em];
   }
 
   h2 {
-    @apply text-[2.5rem] md:text-[4rem] font-display uppercase leading-[0.9] tracking-tight;
+    @apply text-[2.5rem] font-bold tracking-tight;
   }
 
   h3 {
@@ -91,32 +97,11 @@
   }
   
   .btn-primary {
-    @apply bg-brand-red text-white px-10 py-5 rounded-full font-bold transition-all duration-500 hover:bg-brand-red/90 hover:shadow-[0_0_40px_rgba(192,0,0,0.3)] hover:scale-[1.05] active:scale-95 uppercase tracking-widest text-xs;
+    @apply bg-brand-red text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:bg-brand-red/90 hover:shadow-red-glow hover:scale-[1.02] active:scale-95;
   }
 
   .btn-secondary {
-    @apply border-2 border-slate-200 text-slate-900 px-10 py-5 rounded-full font-bold transition-all duration-500 hover:border-brand-red hover:bg-brand-red/5 active:scale-95 uppercase tracking-widest text-xs;
-  }
-
-  .text-ink {
-    @apply text-[#0A0A0A];
-  }
-
-  .bg-ink {
-    @apply bg-[#0A0A0A];
-  }
-
-  .border-ink {
-    @apply border-[#0A0A0A];
-  }
-
-  .slam-in {
-    animation: slamIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  @keyframes slamIn {
-    0% { transform: scale(1.5) translateY(50px); opacity: 0; filter: blur(10px); }
-    100% { transform: scale(1) translateY(0); opacity: 1; filter: blur(0); }
+    @apply border-2 border-slate-200 text-slate-900 px-8 py-4 rounded-2xl font-bold transition-all duration-300 hover:border-brand-red hover:bg-brand-red/5 active:scale-95;
   }
 
   .mono-label {
