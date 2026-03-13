@@ -112,7 +112,7 @@ export default function Home() {
   return (
     <div className="overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative pt-10 pb-32 px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <section className="relative pt-10 pb-32 px-6 max-w-[95%] mx-auto grid lg:grid-cols-2 gap-16 items-center">
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -322,7 +322,7 @@ export default function Home() {
 
       {/* Tracks Section */}
       <BackgroundLines className="py-24 px-6">
-        <div className="max-w-7xl mx-auto relative z-10 w-full">
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold mb-4 text-slate-900">Comprehensive IT Training</h2>
             <p className="text-slate-600 max-w-2xl mx-auto">
@@ -369,7 +369,7 @@ export default function Home() {
       </BackgroundLines>
 
       {/* IDE Preview Section */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="py-24 px-6 max-w-[95%] mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl font-display font-bold mb-6 text-slate-900">Practice Like It's Real Interview</h2>

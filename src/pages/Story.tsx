@@ -39,8 +39,8 @@ export default function Story() {
   const navigate = useNavigate();
 
   return (
-    <BackgroundLines className="min-h-screen">
-      <div className="relative z-10 pt-12 pb-24 px-6 max-w-5xl mx-auto w-full">
+    <div className="min-h-screen bg-white">
+      <div className="relative z-10 pt-12 pb-24 px-6 max-w-[95%] mx-auto w-full">
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -64,42 +64,56 @@ export default function Story() {
           </div>
 
           {/* Section 3: Story Content */}
-          <motion.div 
-            variants={itemVariants}
-            className="space-y-12 pt-8"
-          >
-            <div className="max-w-4xl space-y-8 text-lg text-slate-600 leading-relaxed">
-              <motion.p variants={itemVariants}>
-                Coademic was founded in 2025 with a bold conviction - that education must do more than grant degrees; it must build careers. We witnessed a harsh reality: talented students were graduating every year armed with knowledge, yet unprepared for the practical demands of the industry. The problem was never capability - it was the disconnect between classrooms and careers. We refused to let that disconnect define a generation.
-              </motion.p>
-              
-              <motion.p variants={itemVariants}>
-                Instead of accepting the gap, we chose to bridge it. Our founders stepped away from secure professional paths to pursue a larger purpose - building an ecosystem where learning is practical, immersive, and deeply aligned with real industry expectations. Coademic was never created to be just another training institute; it was built as a movement - a mission to redefine how students transition from academics to achievement.
-              </motion.p>
-              
-              <motion.p variants={itemVariants}>
-                What began as a focused training initiative evolved into a dynamic, career-accelerating platform. Today, Coademic delivers industry-driven programs across emerging technology domains, integrating real-world hands-on projects, live problem-solving aligned with industry standards, mentorship from experienced professionals, career-first skill development, and meaningful industry exposure. We don’t just teach subjects - we simulate the real world. We don’t just provide courses - we create transformation.
-              </motion.p>
+          <div className="grid lg:grid-cols-2 gap-16 items-start pt-8">
+            <motion.div 
+              variants={itemVariants}
+              className="space-y-12"
+            >
+              <div className="max-w-4xl space-y-8 text-lg text-slate-600 leading-relaxed">
+                <motion.p variants={itemVariants}>
+                  Coademic was founded in 2025 with a bold conviction - that education must do more than grant degrees; it must build careers. We witnessed a harsh reality: talented students were graduating every year armed with knowledge, yet unprepared for the practical demands of the industry. The problem was never capability - it was the disconnect between classrooms and careers. We refused to let that disconnect define a generation.
+                </motion.p>
+                
+                <motion.p variants={itemVariants}>
+                  Instead of accepting the gap, we chose to bridge it. Our founders stepped away from secure professional paths to pursue a larger purpose - building an ecosystem where learning is practical, immersive, and deeply aligned with real industry expectations. Coademic was never created to be just another training institute; it was built as a movement - a mission to redefine how students transition from academics to achievement.
+                </motion.p>
+                
+                <motion.p variants={itemVariants}>
+                  What began as a focused training initiative evolved into a dynamic, career-accelerating platform. Today, Coademic delivers industry-driven programs across emerging technology domains, integrating real-world hands-on projects, live problem-solving aligned with industry standards, mentorship from experienced professionals, career-first skill development, and meaningful industry exposure. We don’t just teach subjects - we simulate the real world. We don’t just provide courses - we create transformation.
+                </motion.p>
 
-              <motion.p variants={itemVariants}>
-                At Coademic, students actively build, experiment, collaborate, and grow into confident professionals prepared to meet global standards. As industries evolve and technology advances, we continuously innovate our curriculum, refine our methodologies, and raise our benchmarks to ensure our learners stay ahead - not behind. Today, Coademic stands as a rising force in the EdTech ecosystem, empowering ambition, shaping future-ready professionals, and redefining what career-focused education truly means. Our commitment remains unwavering: to close the gap, unlock potential, and ensure that academics don’t just educate - they elevate.
-              </motion.p>
-            </div>
+                <motion.p variants={itemVariants}>
+                  At Coademic, students actively build, experiment, collaborate, and grow into confident professionals prepared to meet global standards. As industries evolve and technology advances, we continuously innovate our curriculum, refine our methodologies, and raise our benchmarks to ensure our learners stay ahead - not behind. Today, Coademic stands as a rising force in the EdTech ecosystem, empowering ambition, shaping future-ready professionals, and redefining what career-focused education truly means. Our commitment remains unwavering: to close the gap, unlock potential, and ensure that academics don’t just educate - they elevate.
+                </motion.p>
+              </div>
 
-            <div className="flex justify-center pt-8">
-              <motion.div 
-                variants={floatingVariants}
-                animate="animate"
-                className="relative max-w-2xl p-10 bg-white/40 backdrop-blur-xl border border-white/60 rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.05)] overflow-hidden group text-center"
-              >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-red via-brand-red/60 to-brand-red/30" />
-                <p className="text-2xl font-medium text-slate-800 italic leading-relaxed relative z-10">
-                  "Coademic is more than an education platform it’s a passion, a sacrifice, and a commitment to every student’s career success."
-                </p>
-                <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-brand-red/10 rounded-full blur-2xl group-hover:bg-brand-red/20 transition-colors duration-700" />
-              </motion.div>
-            </div>
-          </motion.div>
+              <div className="flex justify-center pt-8">
+                <motion.div 
+                  variants={floatingVariants}
+                  animate="animate"
+                  className="relative max-w-2xl p-10 bg-white/40 backdrop-blur-xl border border-slate-100 rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.05)] overflow-hidden group text-center"
+                >
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-red via-brand-red/60 to-brand-red/30" />
+                  <p className="text-2xl font-medium text-slate-800 italic leading-relaxed relative z-10">
+                    "Coademic is more than an education platform it’s a passion, a sacrifice, and a commitment to every student’s career success."
+                  </p>
+                  <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-brand-red/10 rounded-full blur-2xl group-hover:bg-brand-red/20 transition-colors duration-700" />
+                </motion.div>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              variants={itemVariants}
+              className="relative h-full min-h-[600px] rounded-[32px] overflow-hidden shadow-2xl sticky top-24"
+            >
+              <img 
+                src="https://picsum.photos/seed/coademic-story/800/1000"
+                alt="Our Story"
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </motion.div>
+          </div>
 
           {/* Section 4: Stats */}
           <motion.div variants={itemVariants} className="pt-12">
@@ -177,6 +191,6 @@ export default function Story() {
           </motion.div>
         </motion.div>
       </div>
-    </BackgroundLines>
+    </div>
   );
 }

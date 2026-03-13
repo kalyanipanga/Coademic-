@@ -43,6 +43,11 @@ export async function executeCode(
         language_id: languageId,
         stdin: stdin || "",
       }),
+    }).catch((err) => {
+      if (String(err).includes("fetch") || err?.message?.includes("fetch")) {
+        throw new Error("Failed to connect to the code execution server. This might be due to an ad-blocker, network issue, or the server being temporarily down.");
+      }
+      throw err;
     });
 
     if (!response.ok) {

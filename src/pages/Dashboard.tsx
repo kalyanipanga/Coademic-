@@ -212,7 +212,7 @@ export default function Dashboard({ user }: DashboardProps) {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-red/5 blur-[120px] -z-10 rounded-full" />
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-red/5 blur-[100px] -z-10 rounded-full" />
 
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[95%] mx-auto">
           {/* Mobile Tab Navigation */}
           <div className="md:hidden flex overflow-x-auto gap-2 pb-4 mb-6 no-scrollbar -mx-4 px-4 sticky top-20 bg-slate-50/95 backdrop-blur-sm z-20">
             {sidebarItems.map((item) => (

@@ -3,14 +3,35 @@ import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { Mail, ArrowRight, Sparkles, X, CheckCircle2 } from "lucide-react";
 import React from "react";
+import { supabase } from "../supabase";
 
 export default function SetPassword() {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    setIsLoading(true);
+    setError("");
+    try {
+      const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/set-password`,
+      });
+      
+      if (resetError) throw resetError;
+      
+      setIsSubmitted(true);
+    } catch (err: any) {
+      if (String(err).includes("fetch") || err?.message?.includes("fetch")) {
+        setError("Failed to connect to the server. Please check your internet connection or ensure the Supabase project is active.");
+      } else {
+        setError(err.message || "Failed to send link. Please try again.");
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -49,6 +70,11 @@ export default function SetPassword() {
           </motion.div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
+            {error && (
+              <div className="bg-red-50 text-red-600 p-4 rounded-2xl text-sm font-medium border border-red-100">
+                {error}
+              </div>
+            )}
             <div className="space-y-2">
               <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Email address</label>
               <div className="relative group">
@@ -68,9 +94,14 @@ export default function SetPassword() {
 
             <button 
               type="submit" 
-              className="w-full bg-brand-red text-white font-bold py-5 rounded-2xl shadow-xl shadow-brand-red/20 hover:bg-brand-red/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2"
+              disabled={isLoading}
+              className="w-full bg-brand-red text-white font-bold py-5 rounded-2xl shadow-xl shadow-brand-red/20 hover:bg-brand-red/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:hover:scale-100"
             >
-              Send Link <ArrowRight size={20} />
+              {isLoading ? (
+                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              ) : (
+                <>Send Link <ArrowRight size={20} /></>
+              )}
             </button>
           </form>
         )}

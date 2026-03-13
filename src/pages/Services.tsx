@@ -2513,7 +2513,7 @@ export default function Services() {
   return (
     <div className="min-h-screen bg-white pt-24 pb-16">
       {/* Hero Section */}
-      <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
+      <div className="max-w-[95%] mx-auto px-6 mb-20 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -2540,7 +2540,7 @@ export default function Services() {
       </div>
 
       {/* Service Segments */}
-      <div className="max-w-7xl mx-auto px-6 space-y-24">
+      <div className="max-w-[95%] mx-auto px-6 space-y-24">
         {serviceSegments.map((segment, index) => (
           <motion.div
             key={segment.id}
@@ -2815,7 +2815,7 @@ export default function Services() {
       </AnimatePresence>
 
       {/* Custom Solution CTA */}
-      <div className="max-w-7xl mx-auto px-6 mt-32">
+      <div className="max-w-[95%] mx-auto px-6 mt-32">
         <div className="bg-brand-red rounded-3xl p-12 md:p-16 text-center relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
             <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">

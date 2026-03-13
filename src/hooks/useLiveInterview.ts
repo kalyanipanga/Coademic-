@@ -170,7 +170,11 @@ export function useLiveInterview(topicTitle: string | undefined) {
       
     } catch (err: any) {
       console.error("Failed to connect:", err);
-      setError(err.message || "Failed to start interview");
+      if (String(err).includes("fetch") || err?.message?.includes("fetch")) {
+        setError("Network error: Failed to connect to the AI service. Please check your internet connection or ad-blocker.");
+      } else {
+        setError(err.message || "Failed to start interview");
+      }
       setIsConnecting(false);
       disconnect();
     }

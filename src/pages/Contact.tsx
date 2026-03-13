@@ -52,7 +52,7 @@ export default function Contact() {
           <div className="absolute bottom-20 right-10 animate-float" style={{ animationDelay: '2s' }}><Globe size={60} /></div>
         </div>
         
-        <div className="max-w-7xl mx-auto text-center relative z-10">
+        <div className="max-w-[95%] mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -79,7 +79,7 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pb-32">
+      <div className="max-w-[95%] mx-auto px-6 pb-32">
         <div className="grid lg:grid-cols-12 gap-16">
           {/* Left Column: Info */}
           <div className="lg:col-span-5 space-y-12">
@@ -246,7 +246,7 @@ export default function Contact() {
             <p className="text-slate-600">Quick answers to common inquiries.</p>
           </div>
           
-          <div className="max-w-3xl mx-auto space-y-4">
+          <div className="max-w-[95%] mx-auto space-y-4">
             {faqs.map((faq, i) => (
               <div 
                 key={i}

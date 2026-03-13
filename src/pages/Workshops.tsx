@@ -47,7 +47,7 @@ const workshops = [
 export default function Workshops() {
   return (
     <div className="py-20 px-6 min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[95%] mx-auto">
         <div className="text-center mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

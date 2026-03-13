@@ -26,7 +26,7 @@ const itemVariants = {
 export default function About() {
   return (
     <BackgroundLines className="min-h-screen">
-      <div className="relative z-10 pt-12 pb-24 px-6 max-w-5xl mx-auto w-full">
+      <div className="relative z-10 pt-12 pb-24 px-6 max-w-[95%] mx-auto w-full">
         <motion.div 
           variants={containerVariants}
           initial="hidden"

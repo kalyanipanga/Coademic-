@@ -184,7 +184,7 @@ export default function Courses() {
 
   return (
     <div className="min-h-screen bg-slate-50 py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[95%] mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

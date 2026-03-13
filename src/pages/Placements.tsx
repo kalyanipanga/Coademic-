@@ -44,7 +44,7 @@ function AnimatedCounter({ from, to, suffix }: { from: number; to: number; suffi
 export default function Placements() {
   return (
     <div className="py-24 px-6 min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[95%] mx-auto">
         <div className="text-center mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
