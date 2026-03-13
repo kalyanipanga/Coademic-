@@ -330,36 +330,65 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <motion.div 
               whileHover={{ y: -10 }}
-              className="bg-white rounded-[40px] p-12 border border-slate-200 shadow-2xl relative overflow-hidden group"
+              className="bg-white rounded-[40px] p-16 border border-slate-200 shadow-2xl relative overflow-hidden group"
             >
               <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/5 blur-[100px] rounded-full -z-10" />
-              <span className="text-xs font-bold text-brand-red tracking-widest uppercase mb-4 block">Software Careers</span>
-              <h3 className="text-4xl font-display font-bold mb-8 text-slate-900">Crack IT Interviews</h3>
-              <ul className="grid md:grid-cols-2 gap-6 mb-12">
-                {["DSA Preparation", "HR Questions", "Resume Templates", "Built-in Coding IDE", "Mock Interviews", "Version Controls"].map(item => (
-                  <li key={item} className="flex items-center gap-4 text-slate-700 font-medium">
-                    <div className="w-6 h-6 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red">
-                      <CheckCircle2 size={14} />
-                    </div>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-10 border-t border-slate-100">
+              <span className="text-sm font-bold text-brand-red tracking-widest uppercase mb-4 block">Software Careers</span>
+              <h3 className="text-5xl font-display font-bold mb-12 text-slate-900">Crack IT Interviews</h3>
+              
+              <div className="grid md:grid-cols-2 gap-16">
                 <div>
-                  <span className="text-4xl font-bold text-brand-red">Free Access</span>
-                  <p className="text-slate-500 text-sm mt-1">Limited time offer for students</p>
+                  <h4 className="text-2xl font-bold text-slate-900 mb-8">Interview Preparation</h4>
+                  <ul className="space-y-6">
+                    {["DSA Preparation", "HR Questions", "Resume Templates", "Built-in Coding IDE", "Mock Interviews", "Version Controls"].map(item => (
+                      <li key={item} className="flex items-center gap-4 text-slate-700 font-medium text-lg">
+                        <div className="w-8 h-8 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red">
+                          <CheckCircle2 size={18} />
+                        </div>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="text-2xl font-bold text-slate-900 mb-8">Main Courses</h4>
+                  <ul className="space-y-6">
+                    {[
+                      { name: "Full Stack Development", desc: "Master MERN stack & deployment" },
+                      { name: "Data Structures & Algorithms", desc: "Crack top-tier coding rounds" },
+                      { name: "System Design", desc: "Scale applications for millions" },
+                      { name: "Cloud Computing", desc: "AWS, Azure & DevOps basics" }
+                    ].map(course => (
+                      <li key={course.name} className="flex items-start gap-4 text-slate-700 font-medium">
+                        <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 mt-0.5">
+                          <Code size={18} />
+                        </div>
+                        <div>
+                          <div className="text-lg">{course.name}</div>
+                          <div className="text-sm text-slate-500 font-normal">{course.desc}</div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-16 mt-16 border-t border-slate-100">
+                <div>
+                  <span className="text-5xl font-bold text-brand-red">₹499</span>
+                  <p className="text-slate-500 text-lg mt-2 font-medium">Lifetime Access</p>
                 </div>
                 <div className="flex flex-wrap items-center gap-4">
-                  <Link to="/login" className="btn-primary px-8 py-4 text-lg">Get Started Now</Link>
+                  <Link to="/login" className="btn-primary px-10 py-5 text-xl">Get Started Now</Link>
                   <button 
                     onClick={() => enquireNow('Crack IT Interviews', 'training')}
-                    className="btn-secondary px-8 py-4 text-lg flex items-center gap-2"
+                    className="btn-secondary px-10 py-5 text-xl flex items-center gap-2"
                   >
-                    Enquire Now <WhatsAppIcon size={20} />
+                    Enquire Now <WhatsAppIcon size={24} />
                   </button>
                 </div>
               </div>
